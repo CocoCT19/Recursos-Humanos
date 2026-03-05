@@ -3,11 +3,10 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CollaboratorController;
-
+use App\Http\Controllers\ContractController;
 
 Route::post('/register', [AuthController::class, 'register']);
 Route::post('/login', [AuthController::class, 'login']);
-
 
 Route::get('/dashboard', function () {
     return response('Dashboard', 200);
@@ -20,4 +19,6 @@ Route::middleware('auth')->group(function () {
     Route::put('/collaborators/{id}', [CollaboratorController::class, 'update']);
     Route::delete('/collaborators/{id}', [CollaboratorController::class, 'destroy']);
 
+    Route::post('/contracts', [ContractController::class, 'store'])->name('contracts.store');
+    Route::put('/contracts/{id}', [ContractController::class, 'update'])->name('contracts.update');
 });
