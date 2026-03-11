@@ -217,5 +217,3 @@ Ejecutar:
 - Limpiar cachés: php artisan optimize:clear
 
 
-## Licencia
-MIT (ver LICENSE si aplica).
